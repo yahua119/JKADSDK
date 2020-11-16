@@ -1,0 +1,6 @@
+framework module JiKeAdSDK {
+  umbrella header "JiKeAdSDK.h"
+
+  export *
+  module * { export * }
+}
