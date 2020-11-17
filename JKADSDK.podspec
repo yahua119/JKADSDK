@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JKADSDK"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "ad sdk"
 
   s.description  = <<-DESC
