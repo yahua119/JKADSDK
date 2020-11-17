@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JKADSDK"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "ad sdk"
 
   s.description  = <<-DESC
@@ -33,16 +33,15 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/yahua119/JKADSDK.git", :tag => "#{s.version}" }
 
-
-
-  s.default_subspec = 'frameworks'
-  s.subspec 'frameworks' do |subspec|
-    subspec.preserve_path     =  'JKADSDK/*.framework' 
-  end
-
+  s.vendored_frameworks = 'JKADSDK/*.framework'
   s.resources = 'JKADSDK/*.bundle'
   
-  s.ios.deployment_target = '7.0'
+  s.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  
+  s.ios.deployment_target = '9.0'
 
   s.frameworks = "Foundation", "UIKit"
 
