@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JKADSDK"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "ad sdk"
 
   s.description  = <<-DESC
@@ -36,9 +36,7 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'JKADSDK/*.framework'
   s.resources = 'JKADSDK/*.bundle'
   
-  s.pod_target_xcconfig = {
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
-  }
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   
   s.ios.deployment_target = '9.0'
