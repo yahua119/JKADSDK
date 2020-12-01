@@ -30,18 +30,29 @@ NS_ASSUME_NONNULL_BEGIN
                             media:(NSString *)media
                           channel:(NSString *)channel
                            adList:(NSArray <NSString *>*)adList;
+/// 设置广告userId
+/// @param userId 广告userId, 用于请求广告参数
+- (void)jk_setUserId:(NSString *)userId;
 
 /// 是否打开log，
 /// @param open yes：打开  no：关闭
 - (void)jk_openLog:(BOOL)open;
+/// 实时反馈sdk的log
+/// @param listener log回调
+- (void)jk_setLogListener:(void (^)(NSString *msg))listener;
 
 /// 设置预缓存广告素材定时下载的时间间隔, 默认不开启定时下载
 /// @param time 轮询的时间间隔 (单位分钟) 大于0才有效
 - (void)jk_setTime:(NSInteger)time;
 
-/// 是否开启广告的gps功能
-/// @param gps 默认YES
+/// 是否开启广告的定位功能
+/// @param gps 默认NO  如果设置为YES， 项目需要配置NSLocationWhenInUseUsageDescription的权限
 - (void)jk_setGPS:(BOOL)gps;
+/// 设置定位信息  说明：该函数设置完，定位信息以传入的为准
+/// @param latitude 纬度 无法获取可传0
+/// @param longitude 经度 无法获取可传0
+/// @param altitude 海拔  无法获取可传0
+- (void)jk_setLatitude:(CGFloat)latitude longitude:(CGFloat)longitude altitude:(CGFloat)altitude;
 
 /// 设置请求的超时时间
 /// @param timeout  默认2s
