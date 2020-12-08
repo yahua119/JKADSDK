@@ -58,8 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param timeout  默认2s
 - (void)jk_setRequestTimeout:(NSTimeInterval)timeout;
 
-/// 加载广告  初始化完相关参数必须调用该方法
-- (void)jk_initAds;
+/// 加载广告排期(可多次调用)  初始化完相关参数必须调用该方法,以保证广告最新排期
+- (void)jk_preloadAds;
 
 /**
  缓存设备广告位,  用户想要更新广告数据，可调用该方法
